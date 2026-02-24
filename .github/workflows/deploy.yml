@@ -27,10 +27,11 @@ jobs:
 
       - run: npm ci
 
-      - name: Remove server-only files for static export
+      - name: Prepare for static export
         run: |
           rm -f src/middleware.ts
           rm -rf src/app/api
+          cp .github/static-page.tsx src/app/page.tsx
 
       - run: npm run build
         env:
