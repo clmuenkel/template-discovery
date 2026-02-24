@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import basePath from "@/lib/basePath";
 
 interface HeroProps {
   companyName: string;
@@ -75,7 +76,7 @@ export default function Hero({
           }}
         >
           <Image
-            src="/evios-logo-clean.png"
+            src={`${basePath}/evios-logo-clean.png`}
             alt="EVIOS"
             width={260}
             height={72}

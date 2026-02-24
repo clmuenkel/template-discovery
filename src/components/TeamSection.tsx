@@ -9,6 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import basePath from "@/lib/basePath";
 
 interface BioField {
   icon: LucideIcon;
@@ -28,7 +29,7 @@ const team: TeamMember[] = [
   {
     name: "Carl-Luca Muenkel",
     title: "Co Founder | Head of Process & Automation",
-    image: "/team/carl-luca.png",
+    image: `${basePath}/team/carl-luca.png`,
     imagePosition: "center top",
     fields: [
       {
@@ -51,7 +52,7 @@ const team: TeamMember[] = [
   {
     name: "Zad Iqbal",
     title: "Head of Partnerships",
-    image: "/team/zad.png",
+    image: `${basePath}/team/zad.png`,
     imagePosition: "center top",
     fields: [
       {
@@ -74,7 +75,7 @@ const team: TeamMember[] = [
   {
     name: "Facundo Llamas",
     title: "Head of Software Development",
-    image: "/team/facundo.png",
+    image: `${basePath}/team/facundo.png`,
     imagePosition: "center top",
     fields: [
       {

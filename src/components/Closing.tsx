@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Flag, ClipboardCheck } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import basePath from "@/lib/basePath";
 
 interface Props {
   contactFirstName: string;
@@ -158,7 +159,7 @@ export default function Closing({
           )}
           <div className="mt-4">
             <Image
-              src="/evios-logo-clean.png"
+              src={`${basePath}/evios-logo-clean.png`}
               alt="EVIOS"
               width={170}
               height={48}
