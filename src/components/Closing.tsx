@@ -7,11 +7,17 @@ import ScrollReveal from "./ScrollReveal";
 
 interface Props {
   contactFirstName: string;
-  slug: string;
+  customer: string;
+  closingMessage?: string;
   easterEgg?: string;
 }
 
-export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
+export default function Closing({
+  contactFirstName,
+  customer,
+  closingMessage,
+  easterEgg,
+}: Props) {
   const isPersonalized = contactFirstName !== "Valued";
   const [painCount, setPainCount] = useState(0);
   const [stageCount, setStageCount] = useState(0);
@@ -20,7 +26,7 @@ export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`/api/discovery/${slug}`);
+        const res = await fetch(`/api/discovery/${customer}`);
         if (res.ok) {
           const json = await res.json();
           parseSummary(json.mapper, json.snapshot);
@@ -29,8 +35,8 @@ export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
       } catch { /* API unavailable, fall through to localStorage */ }
 
       try {
-        const mapperRaw = localStorage.getItem("evios-mapper-" + slug);
-        const snapRaw = localStorage.getItem("evios-snapshot-" + slug);
+        const mapperRaw = localStorage.getItem("evios-mapper-" + customer);
+        const snapRaw = localStorage.getItem("evios-snapshot-" + customer);
         parseSummary(
           mapperRaw ? JSON.parse(mapperRaw) : null,
           snapRaw ? JSON.parse(snapRaw) : null
@@ -61,7 +67,7 @@ export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
     load();
     const interval = setInterval(load, 5000);
     return () => clearInterval(interval);
-  }, [slug]);
+  }, [customer]);
 
   const hasSummary = painCount > 0 || fieldCount > 0;
 
@@ -114,6 +120,16 @@ export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
         )}
 
         <ScrollReveal className="text-center">
+          {closingMessage && (
+            <p
+              className="text-evios text-lg sm:text-xl font-semibold mb-3"
+              style={{
+                textShadow: "0 0 30px rgba(var(--color-evios-rgb),0.18)",
+              }}
+            >
+              {closingMessage}
+            </p>
+          )}
           <p
             className="text-text-secondary text-xl font-medium mb-2"
             style={{
@@ -144,9 +160,9 @@ export default function Closing({ contactFirstName, slug, easterEgg }: Props) {
             <Image
               src="/evios-logo-blue.png"
               alt="EVIOS"
-              width={120}
-              height={34}
-              className="h-7 w-auto mx-auto opacity-40"
+              width={170}
+              height={48}
+              className="h-10 w-auto mx-auto opacity-40"
               style={{
                 filter: "drop-shadow(0 0 12px rgba(var(--color-evios-rgb),0.25))",
               }}

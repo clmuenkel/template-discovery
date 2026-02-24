@@ -4,7 +4,7 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
   const parts = hostname.split(".");
 
-  // For local dev: use ?slug= query param directly
+  // For local dev: use ?customer= query param directly
   if (hostname.startsWith("localhost") || hostname.startsWith("127.0.0.1")) {
     return NextResponse.next();
   }
@@ -15,8 +15,8 @@ export function middleware(request: NextRequest) {
     if (subdomain === "www") return NextResponse.next();
 
     const url = request.nextUrl.clone();
-    if (!url.searchParams.has("slug")) {
-      url.searchParams.set("slug", subdomain);
+    if (!url.searchParams.has("customer")) {
+      url.searchParams.set("customer", subdomain);
       return NextResponse.rewrite(url);
     }
   }

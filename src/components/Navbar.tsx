@@ -34,14 +34,14 @@ export default function Navbar({ companyName }: NavbarProps) {
               <Image
                 src="/evios-logo-blue.png"
                 alt="EVIOS"
-                width={80}
-                height={22}
-                className="h-5 w-auto"
+                width={112}
+                height={31}
+                className="h-7 w-auto"
               />
               {isPersonalized && (
                 <>
                   <span className="text-text-muted text-xs">&times;</span>
-                  <span className="text-text-secondary text-[13px] font-medium">
+                  <span className="text-text-secondary text-[15px] font-semibold">
                     {companyName}
                   </span>
                 </>

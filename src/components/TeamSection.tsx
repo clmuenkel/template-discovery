@@ -27,7 +27,7 @@ interface TeamMember {
 const team: TeamMember[] = [
   {
     name: "Carl-Luca Muenkel",
-    title: "Founder | Head of Process",
+    title: "Co Founder | Head of Process & Automation",
     image: "/team/carl-luca.png",
     imagePosition: "center top",
     fields: [
@@ -50,8 +50,8 @@ const team: TeamMember[] = [
   },
   {
     name: "Zad Iqbal",
-    title: "Head of Partnerships",
-    image: "/team/zad.png",
+    title: "Co Founder | Head of Partnerships and Technology",
+    image: "/team/zad-headshot.png",
     imagePosition: "center 8%",
     fields: [
       {
@@ -73,7 +73,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Facundo Llamas",
-    title: "Head of Technology",
+    title: "Head of Software Development",
     image: "/team/facundo.png",
     imagePosition: "center top",
     fields: [

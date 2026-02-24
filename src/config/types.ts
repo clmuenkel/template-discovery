@@ -25,6 +25,12 @@ export interface ThemeConfig {
   themeLabel?: string;
 }
 
+export interface ProspectInsight {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 export interface ProspectConfig {
   slug: string;
   companyName: string;
@@ -35,8 +41,11 @@ export interface ProspectConfig {
   industry: string;
   linkedin: LinkedInData;
   callNotes?: string;
+  heroTagline?: string;
+  insights?: ProspectInsight[];
   painPoints?: string[];
   suggestedSolutions?: string[];
+  closingMessage?: string;
   /** Theme customization — colors, watermarks, easter eggs */
   theme?: Partial<ThemeConfig>;
 }

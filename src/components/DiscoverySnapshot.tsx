@@ -127,8 +127,8 @@ function isFieldFilled(data: SnapshotData, field: Field): boolean {
   return typeof val === "string" && val.trim().length > 0;
 }
 
-export default function DiscoverySnapshot({ slug }: { slug: string }) {
-  const [data, setData, hydrated] = usePersistedState<SnapshotData>(slug, "snapshot", {});
+export default function DiscoverySnapshot({ customer }: { customer: string }) {
+  const [data, setData, hydrated] = usePersistedState<SnapshotData>(customer, "snapshot", {});
   const [step, setStep] = useState(0);
   const [customInputs, setCustomInputs] = useState<Record<string, string>>({});
   const [addingCustom, setAddingCustom] = useState<string | null>(null);

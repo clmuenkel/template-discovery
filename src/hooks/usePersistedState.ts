@@ -6,11 +6,11 @@ const DEBOUNCE_MS = 600;
 
 /**
  * Persists state to the API (Neon DB) with localStorage fallback.
- * - On mount: tries GET /api/discovery/:slug, falls back to localStorage
+ * - On mount: tries GET /api/discovery/:id, falls back to localStorage
  * - On change: debounced PUT to API, falls back to localStorage
  */
 export function usePersistedState<T>(
-  slug: string,
+  customer: string,
   dataType: "snapshot" | "mapper",
   initial: T
 ): [T, (updater: T | ((prev: T) => T)) => void, boolean] {
@@ -18,14 +18,14 @@ export function usePersistedState<T>(
   const [hydrated, setHydrated] = useState(false);
   const useApiRef = useRef(true);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const localKey = `evios-${dataType}-${slug}`;
+  const localKey = `evios-${dataType}-${customer}`;
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
       try {
-        const res = await fetch(`/api/discovery/${slug}`);
+        const res = await fetch(`/api/discovery/${customer}`);
         if (res.ok) {
           const json = await res.json();
           const payload = json[dataType];
@@ -52,12 +52,12 @@ export function usePersistedState<T>(
 
     load();
     return () => { cancelled = true; };
-  }, [slug, dataType, localKey]);
+  }, [customer, dataType, localKey]);
 
   const save = useCallback(
     (payload: T) => {
       if (useApiRef.current) {
-        fetch(`/api/discovery/${slug}`, {
+        fetch(`/api/discovery/${customer}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ type: dataType, payload }),
@@ -72,7 +72,7 @@ export function usePersistedState<T>(
         } catch { /* ignore */ }
       }
     },
-    [slug, dataType, localKey]
+    [customer, dataType, localKey]
   );
 
   const update = useCallback(

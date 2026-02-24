@@ -9,6 +9,7 @@ interface HeroProps {
   contactFirstName: string;
   contactLastName: string;
   contactTitle: string;
+  heroTagline?: string;
   logoUrl?: string;
   watermarkUrl?: string;
 }
@@ -18,6 +19,7 @@ export default function Hero({
   contactFirstName,
   contactLastName,
   contactTitle,
+  heroTagline,
   logoUrl,
   watermarkUrl,
 }: HeroProps) {
@@ -30,12 +32,14 @@ export default function Hero({
       setTimeout(() => setPhase(3), 1500),
       setTimeout(() => setPhase(4), 2100),
       setTimeout(() => setPhase(5), 2800),
+      setTimeout(() => setPhase(6), 3400),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
   const isPersonalized = contactFirstName !== "Valued";
   const hasLogo = logoUrl && logoUrl.length > 0;
+  const isAndress = companyName === "Andress Plumbing";
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6">
@@ -73,9 +77,9 @@ export default function Hero({
           <Image
             src="/evios-logo-blue.png"
             alt="EVIOS"
-            width={160}
-            height={44}
-            className="h-10 w-auto mx-auto"
+            width={240}
+            height={66}
+            className="h-14 sm:h-16 w-auto mx-auto"
             style={{
               filter: phase >= 1 ? "drop-shadow(0 0 12px rgba(var(--color-evios-rgb),0.25))" : "none",
               transition: "filter 1.5s ease",
@@ -112,9 +116,9 @@ export default function Hero({
               <Image
                 src={logoUrl}
                 alt={companyName}
-                width={140}
-                height={50}
-                className="h-10 w-auto object-contain opacity-80"
+                width={isAndress ? 720 : 560}
+                height={isAndress ? 230 : 180}
+                className={`${isAndress ? "h-24 sm:h-28" : "h-20 sm:h-24"} w-auto object-contain opacity-95`}
               />
             </div>
           )}
@@ -129,11 +133,27 @@ export default function Hero({
           </h1>
         </div>
 
-        {/* Phase 4: Divider + contact */}
+        {/* Phase 4: Optional hero tagline */}
+        {heroTagline && (
+          <div
+            className="pt-5"
+            style={{
+              opacity: phase >= 4 ? 1 : 0,
+              transform: phase >= 4 ? "none" : "translateY(10px)",
+              transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)",
+            }}
+          >
+            <p className="text-text-muted text-[12px] tracking-[0.22em] uppercase font-medium">
+              {heroTagline}
+            </p>
+          </div>
+        )}
+
+        {/* Phase 5: Divider + contact */}
         <div
           className="pt-10"
           style={{
-            opacity: phase >= 4 ? 1 : 0,
+            opacity: phase >= 5 ? 1 : 0,
             transition: "all 0.8s cubic-bezier(0.16,1,0.3,1)",
           }}
         >
@@ -142,28 +162,28 @@ export default function Hero({
             style={{
               background: "linear-gradient(90deg, transparent, rgba(var(--color-evios-rgb),0.8), transparent)",
               boxShadow: "0 0 12px rgba(var(--color-evios-rgb),0.3)",
-              transform: phase >= 4 ? "scaleX(1)" : "scaleX(0)",
+              transform: phase >= 5 ? "scaleX(1)" : "scaleX(0)",
               transition: "transform 1s cubic-bezier(0.16,1,0.3,1) 0.1s",
             }}
           />
           {isPersonalized && (
-            <p className="text-text-secondary text-base">
+            <p className="text-text-secondary text-2xl sm:text-3xl font-semibold">
               {contactFirstName} {contactLastName}
               {contactTitle && (
-                <span className="text-text-muted"> &mdash; {contactTitle}</span>
+                <span className="text-text-muted text-xl sm:text-2xl"> &mdash; {contactTitle}</span>
               )}
             </p>
           )}
         </div>
       </div>
 
-      {/* Phase 5: Scroll hint */}
+      {/* Phase 6: Scroll hint */}
       <div
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
         style={{
-          opacity: phase >= 5 ? 1 : 0,
+          opacity: phase >= 6 ? 1 : 0,
           transition: "opacity 1s ease",
-          animation: phase >= 5 ? "scroll-hint 2.5s ease-in-out infinite" : "none",
+          animation: phase >= 6 ? "scroll-hint 2.5s ease-in-out infinite" : "none",
         }}
       >
         <a href="#team" aria-label="Scroll down">

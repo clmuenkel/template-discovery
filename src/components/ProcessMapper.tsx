@@ -91,9 +91,9 @@ function emptyStage(): StageState {
   return { notes: "", painPoints: [] };
 }
 
-export default function ProcessMapper({ slug }: { slug: string }) {
+export default function ProcessMapper({ customer }: { customer: string }) {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [data, setData, hydrated] = usePersistedState<MapperData>(slug, "mapper", {});
+  const [data, setData, hydrated] = usePersistedState<MapperData>(customer, "mapper", {});
 
   const [addingPoint, setAddingPoint] = useState(false);
   const [newText, setNewText] = useState("");

@@ -7,21 +7,22 @@ import Hero from "@/components/Hero";
 import TeamSection from "@/components/TeamSection";
 import ProcessSection from "@/components/ProcessSection";
 import StatsSection from "@/components/StatsSection";
+import InsightSection from "@/components/InsightSection";
 import DiscoveryIntro from "@/components/DiscoveryIntro";
 import DiscoverySnapshot from "@/components/DiscoverySnapshot";
 import ProcessMapper from "@/components/ProcessMapper";
 import Closing from "@/components/Closing";
 
 interface PageProps {
-  searchParams: Promise<{ slug?: string }>;
+  searchParams: Promise<{ customer?: string; slug?: string }>;
 }
 
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
   const params = await searchParams;
-  const slug = params.slug || "demo";
-  const prospect = prospects[slug] || defaultProspect;
+  const customer = params.customer || params.slug || "demo";
+  const prospect = prospects[customer] || defaultProspect;
 
   return {
     title:
@@ -34,8 +35,8 @@ export async function generateMetadata({
 
 export default async function Home({ searchParams }: PageProps) {
   const params = await searchParams;
-  const slug = params.slug || "demo";
-  const prospect: ProspectConfig = prospects[slug] || defaultProspect;
+  const customer = params.customer || params.slug || "demo";
+  const prospect: ProspectConfig = prospects[customer] || defaultProspect;
 
   return (
     <ThemeProvider theme={prospect.theme}>
@@ -48,6 +49,7 @@ export default async function Home({ searchParams }: PageProps) {
           contactFirstName={prospect.contactFirstName}
           contactLastName={prospect.contactLastName}
           contactTitle={prospect.contactTitle}
+          heroTagline={prospect.heroTagline}
           logoUrl={prospect.logoUrl}
           watermarkUrl={prospect.theme?.watermarkUrl}
         />
@@ -55,6 +57,7 @@ export default async function Home({ searchParams }: PageProps) {
         <TeamSection />
         <ProcessSection />
         <StatsSection prospect={prospect} />
+        <InsightSection insights={prospect.insights} />
 
         {/* ─── TRANSITION ─── */}
         <DiscoveryIntro
@@ -65,14 +68,15 @@ export default async function Home({ searchParams }: PageProps) {
         />
 
         {/* ─── WORKSHOP ─── */}
-        <DiscoverySnapshot slug={slug} />
-        <ProcessMapper slug={slug} />
+        <DiscoverySnapshot customer={customer} />
+        <ProcessMapper customer={customer} />
 
         {/* ─── CLOSE ─── */}
         <div className="accent-line" />
         <Closing
           contactFirstName={prospect.contactFirstName}
-          slug={slug}
+          customer={customer}
+          closingMessage={prospect.closingMessage}
           easterEgg={prospect.theme?.easterEggClosing}
         />
       </main>
