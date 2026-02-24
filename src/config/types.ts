@@ -51,9 +51,9 @@ export interface ProspectConfig {
 }
 
 export const DEFAULT_THEME: ThemeConfig = {
-  accent: "#0A7AFF",
-  accentLight: "#3D9AFF",
-  accentDark: "#0860CC",
+  accent: "#0b5394",
+  accentLight: "#c9daf8",
+  accentDark: "#083d6f",
 };
 
 /** Convert hex "#0A7AFF" to "10, 122, 255" for use in rgba() */

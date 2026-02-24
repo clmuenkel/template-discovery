@@ -14,7 +14,7 @@ export async function GET(_req: NextRequest, ctx: RouteContext) {
     const { slug } = await ctx.params;
     const sql = getDb();
 
-    const rows = await sql(
+    const rows = await sql.query(
       `SELECT data_type, payload FROM discovery_data WHERE slug = $1`,
       [slug]
     );
@@ -57,7 +57,7 @@ export async function PUT(req: NextRequest, ctx: RouteContext) {
 
     const sql = getDb();
 
-    await sql(
+    await sql.query(
       `INSERT INTO discovery_data (slug, data_type, payload, updated_at)
        VALUES ($1, $2, $3, NOW())
        ON CONFLICT (slug, data_type)
@@ -87,7 +87,7 @@ export async function DELETE(_req: NextRequest, ctx: RouteContext) {
     const { slug } = await ctx.params;
     const sql = getDb();
 
-    await sql(`DELETE FROM discovery_data WHERE slug = $1`, [slug]);
+    await sql.query(`DELETE FROM discovery_data WHERE slug = $1`, [slug]);
 
     return NextResponse.json({ ok: true, deleted: slug });
   } catch (err) {

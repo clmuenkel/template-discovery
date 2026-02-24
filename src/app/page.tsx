@@ -6,12 +6,11 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TeamSection from "@/components/TeamSection";
 import ProcessSection from "@/components/ProcessSection";
-import StatsSection from "@/components/StatsSection";
-import InsightSection from "@/components/InsightSection";
 import DiscoveryIntro from "@/components/DiscoveryIntro";
 import DiscoverySnapshot from "@/components/DiscoverySnapshot";
 import ProcessMapper from "@/components/ProcessMapper";
 import Closing from "@/components/Closing";
+import Appendix from "@/components/Appendix";
 
 interface PageProps {
   searchParams: Promise<{ customer?: string; slug?: string }>;
@@ -56,8 +55,6 @@ export default async function Home({ searchParams }: PageProps) {
         <div className="accent-line" />
         <TeamSection />
         <ProcessSection />
-        <StatsSection prospect={prospect} />
-        <InsightSection insights={prospect.insights} />
 
         {/* ─── TRANSITION ─── */}
         <DiscoveryIntro
@@ -79,6 +76,7 @@ export default async function Home({ searchParams }: PageProps) {
           closingMessage={prospect.closingMessage}
           easterEgg={prospect.theme?.easterEggClosing}
         />
+        <Appendix prospect={prospect} />
       </main>
     </ThemeProvider>
   );

@@ -158,11 +158,11 @@ export default function Closing({
           )}
           <div className="mt-4">
             <Image
-              src="/evios-logo-blue.png"
+              src="/evios-logo-clean.png"
               alt="EVIOS"
               width={170}
               height={48}
-              className="h-10 w-auto mx-auto opacity-40"
+              className="h-9 w-auto mx-auto opacity-55"
               style={{
                 filter: "drop-shadow(0 0 12px rgba(var(--color-evios-rgb),0.25))",
               }}

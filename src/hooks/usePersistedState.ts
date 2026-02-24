@@ -17,7 +17,7 @@ export function usePersistedState<T>(
   const [data, setData] = useState<T>(initial);
   const [hydrated, setHydrated] = useState(false);
   const useApiRef = useRef(true);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const localKey = `evios-${dataType}-${customer}`;
 
   useEffect(() => {

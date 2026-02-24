@@ -188,8 +188,8 @@ export default function ProcessMapper({ customer }: { customer: string }) {
           <div
             className="rounded-2xl p-4 sm:p-5"
             style={{
-              background: "rgba(14,14,26,0.5)",
-              border: "1px solid rgba(22,22,37,0.6)",
+              background: "var(--color-bg-card)",
+              border: "1px solid var(--color-border)",
             }}
           >
             <div className="flex items-center justify-between gap-1">
@@ -234,7 +234,7 @@ export default function ProcessMapper({ customer }: { customer: string }) {
                                   : "rgba(245,158,11,0.1)"
                                 : hasContent
                                   ? "rgba(var(--color-evios-rgb),0.08)"
-                                  : "rgba(22,22,37,0.8)",
+                                  : "var(--color-bg-elevated)",
                             boxShadow: isActive
                               ? "0 0 15px rgba(var(--color-evios-rgb),0.4)"
                               : "none",
@@ -302,7 +302,7 @@ export default function ProcessMapper({ customer }: { customer: string }) {
                           color:
                             i < activeIdx
                               ? "rgba(var(--color-evios-rgb),0.35)"
-                              : "rgba(22,22,37,0.6)",
+                              : "var(--color-border)",
                         }}
                       />
                     )}
@@ -338,15 +338,14 @@ export default function ProcessMapper({ customer }: { customer: string }) {
                   className="rounded-2xl border overflow-hidden glow-blue"
                   style={{
                     borderColor: "rgba(var(--color-evios-rgb),0.12)",
-                    background:
-                      "linear-gradient(135deg, rgba(14,14,26,0.95), rgba(10,10,18,0.98))",
+                    background: "var(--color-bg-card)",
                   }}
                 >
                   {/* Stage header */}
                   <div
                     className="p-7 lg:p-9"
                     style={{
-                      borderBottom: "1px solid rgba(22,22,37,0.8)",
+                      borderBottom: "1px solid var(--color-border)",
                     }}
                   >
                     <div className="flex items-start gap-4">
@@ -376,7 +375,7 @@ export default function ProcessMapper({ customer }: { customer: string }) {
                   </div>
 
                   {/* Two columns */}
-                  <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-[rgba(22,22,37,0.8)]">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-border">
                     {/* Notes */}
                     <div className="p-7 lg:p-9">
                       <div className="flex items-center gap-2 mb-4">
@@ -601,8 +600,8 @@ export default function ProcessMapper({ customer }: { customer: string }) {
             <div
               className="mt-10 rounded-xl p-5 flex items-center justify-between"
               style={{
-                background: "rgba(14,14,26,0.6)",
-                border: "1px solid rgba(22,22,37,0.6)",
+                background: "var(--color-bg-card)",
+                border: "1px solid var(--color-border)",
               }}
             >
               <div className="flex items-center gap-3">

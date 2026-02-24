@@ -209,13 +209,13 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                         ? "rgba(var(--color-evios-rgb),0.15)"
                         : filled
                           ? "rgba(var(--color-evios-rgb),0.06)"
-                          : "rgba(22,22,37,0.5)",
+                          : "rgba(148,163,184,0.15)",
                       border: `1.5px solid ${
                         active
                           ? "rgba(var(--color-evios-rgb),0.5)"
                           : filled
                             ? "rgba(var(--color-evios-rgb),0.2)"
-                            : "rgba(22,22,37,0.8)"
+                            : "var(--color-border)"
                       }`,
                       boxShadow: active
                         ? "0 0 24px rgba(var(--color-evios-rgb),0.2), inset 0 1px 0 rgba(var(--color-evios-rgb),0.1)"
@@ -255,7 +255,7 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                       width: "24px",
                       background: i < step || (filled && isFieldFilled(data, fields[i + 1]))
                         ? "rgba(var(--color-evios-rgb),0.3)"
-                        : "rgba(22,22,37,0.6)",
+                        : "var(--color-border)",
                     }}
                   />
                 )}
@@ -271,8 +271,8 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
           style={{
             background: isFilled
               ? "rgba(var(--color-evios-rgb),0.03)"
-              : "rgba(14,14,26,0.5)",
-            border: `1px solid ${isFilled ? "rgba(var(--color-evios-rgb),0.12)" : "rgba(22,22,37,0.6)"}`,
+              : "var(--color-bg-card)",
+            border: `1px solid ${isFilled ? "rgba(var(--color-evios-rgb),0.22)" : "var(--color-border)"}`,
             animation: "card-enter 0.4s cubic-bezier(0.16,1,0.3,1) both",
           }}
         >
@@ -283,7 +283,7 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
               style={{
                 background: isFilled
                   ? "rgba(var(--color-evios-rgb),0.12)"
-                  : "rgba(22,22,37,0.8)",
+                  : "var(--color-bg-elevated)",
                 boxShadow: isFilled
                   ? "0 0 16px rgba(var(--color-evios-rgb),0.12)"
                   : "none",
@@ -302,7 +302,7 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
 
           <div
             className="w-full h-px my-5"
-            style={{ background: "rgba(22,22,37,0.6)" }}
+            style={{ background: "var(--color-border)" }}
           />
 
           {/* Dual pills (team size) */}
@@ -331,9 +331,9 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                             onClick={() => selectPill(group.id, opt)}
                             className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95"
                             style={{
-                              background: isSelected ? "var(--color-evios)" : "rgba(22,22,37,0.6)",
+                              background: isSelected ? "var(--color-evios)" : "var(--color-bg-elevated)",
                               color: isSelected ? "#fff" : "var(--color-text-secondary)",
-                              border: `1px solid ${isSelected ? "var(--color-evios)" : "rgba(22,22,37,0.8)"}`,
+                              border: `1px solid ${isSelected ? "var(--color-evios)" : "var(--color-border)"}`,
                               boxShadow: isSelected ? "0 0 16px rgba(var(--color-evios-rgb),0.25)" : "none",
                             }}
                           >
@@ -360,9 +360,9 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                     onClick={() => selectPill(field.id, opt)}
                     className="px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 active:scale-95"
                     style={{
-                      background: isSelected ? "var(--color-evios)" : "rgba(22,22,37,0.6)",
+                      background: isSelected ? "var(--color-evios)" : "var(--color-bg-elevated)",
                       color: isSelected ? "#fff" : "var(--color-text-secondary)",
-                      border: `1px solid ${isSelected ? "var(--color-evios)" : "rgba(22,22,37,0.8)"}`,
+                      border: `1px solid ${isSelected ? "var(--color-evios)" : "var(--color-border)"}`,
                       boxShadow: isSelected ? "0 0 16px rgba(var(--color-evios-rgb),0.25)" : "none",
                     }}
                   >
@@ -387,9 +387,9 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                     style={{
                       background: isSelected
                         ? "rgba(var(--color-evios-rgb),0.15)"
-                        : "rgba(22,22,37,0.6)",
+                        : "var(--color-bg-elevated)",
                       color: isSelected ? "var(--color-evios-light)" : "var(--color-text-secondary)",
-                      border: `1px solid ${isSelected ? "rgba(var(--color-evios-rgb),0.35)" : "rgba(22,22,37,0.8)"}`,
+                      border: `1px solid ${isSelected ? "rgba(var(--color-evios-rgb),0.35)" : "var(--color-border)"}`,
                       boxShadow: isSelected ? "0 0 12px rgba(var(--color-evios-rgb),0.1)" : "none",
                     }}
                   >
@@ -421,7 +421,7 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                   <div
                     className="flex items-center gap-2 px-3 py-1.5 rounded-lg"
                     style={{
-                      background: "rgba(22,22,37,0.6)",
+                      background: "var(--color-bg-elevated)",
                       border: "1px solid rgba(var(--color-evios-rgb),0.25)",
                     }}
                   >
@@ -454,7 +454,7 @@ export default function DiscoverySnapshot({ customer }: { customer: string }) {
                     style={{
                       background: "transparent",
                       color: "var(--color-text-muted)",
-                      border: "1px dashed rgba(22,22,37,0.8)",
+                      border: "1px dashed var(--color-border)",
                     }}
                   >
                     <Plus className="w-3.5 h-3.5" />

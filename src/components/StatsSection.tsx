@@ -113,7 +113,13 @@ function StatBlock({
         duration={0.9}
         className={isEven ? "" : "lg:order-1"}
       >
-        <div className="p-7 rounded-2xl bg-bg-card border border-border glow-blue">
+          <div
+            className="p-7 rounded-2xl border glow-blue"
+            style={{
+              background: "var(--color-bg-card)",
+              borderColor: "var(--color-border)",
+            }}
+          >
           {/* Pain point */}
           <div className="flex items-start gap-3 mb-6 p-4 rounded-xl bg-red/5 border border-red/10">
             <AlertCircle className="w-5 h-5 text-red mt-0.5 shrink-0" />
@@ -130,7 +136,7 @@ function StatBlock({
           )}
 
           {/* Solutions with stagger */}
-          <p className="text-text-muted text-xs tracking-[0.15em] uppercase font-medium mb-4">
+          <p className="text-text-secondary text-xs tracking-[0.15em] uppercase font-medium mb-4">
             Our Solutions
           </p>
           <div className="space-y-3">

@@ -80,8 +80,8 @@ export default function DiscoveryIntro({
             <div
               className="mt-10 rounded-xl p-5 text-left max-w-lg mx-auto"
               style={{
-                background: "rgba(var(--color-evios-rgb),0.04)",
-                border: "1px solid rgba(var(--color-evios-rgb),0.12)",
+                background: "var(--color-surface2)",
+                border: "1px solid var(--color-border)",
               }}
             >
               <p className="text-evios text-[10px] tracking-[0.2em] uppercase font-bold mb-2">

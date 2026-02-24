@@ -29,28 +29,28 @@ export default function Navbar({ companyName }: NavbarProps) {
     >
       <div className="bg-bg/80 backdrop-blur-md border-b border-border">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="flex h-14 items-center justify-between">
+          <div className="flex h-20 items-center justify-between">
             <div className="flex items-center gap-3">
               <Image
-                src="/evios-logo-blue.png"
+                src="/evios-logo-clean.png"
                 alt="EVIOS"
-                width={112}
-                height={31}
-                className="h-7 w-auto"
+                width={162}
+                height={45}
+                className="h-10 w-auto"
               />
               {isPersonalized && (
                 <>
-                  <span className="text-text-muted text-xs">&times;</span>
-                  <span className="text-text-secondary text-[15px] font-semibold">
+                  <span className="text-text-muted text-sm">&times;</span>
+                  <span className="text-text-secondary text-[15px] font-medium">
                     {companyName}
                   </span>
                 </>
               )}
             </div>
-            <div className="flex items-center gap-7 text-[13px] text-text-secondary font-medium">
+            <div className="flex items-center gap-7 text-[15px] text-text-secondary font-medium">
               <a href="#team" className="hover:text-text transition-colors">Team</a>
               <a href="#process" className="hover:text-text transition-colors">Process</a>
-              <a href="#insights" className="hover:text-text transition-colors">Insights</a>
+              <a href="#appendix" className="hover:text-text transition-colors">Appendix</a>
               <a href="#discovery" className="hover:text-text transition-colors">Discovery</a>
             </div>
           </div>

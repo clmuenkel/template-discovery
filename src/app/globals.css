@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-evios: #0A7AFF;
-  --color-evios-light: #3D9AFF;
-  --color-evios-dark: #0860CC;
+  --color-evios: #0b5394;
+  --color-evios-light: #c9daf8;
+  --color-evios-dark: #083d6f;
 
-  --color-bg: #050508;
-  --color-bg-elevated: #0A0A12;
-  --color-bg-card: #0E0E1A;
+  --color-bg: #FAF8F5;
+  --color-bg-elevated: #F2F0EB;
+  --color-bg-card: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface2: #F7F4EF;
 
-  --color-border: #161625;
-  --color-border-active: rgba(10, 122, 255, 0.3);
+  --color-border: #E2E0DB;
+  --color-border-active: rgba(11, 83, 148, 0.3);
 
-  --color-text: #F0F0F5;
-  --color-text-secondary: #7E8594;
-  --color-text-muted: #484D5A;
+  --color-text: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
 
   --color-green: #22C55E;
   --color-red: #EF4444;
@@ -24,8 +26,8 @@
 }
 
 :root {
-  --color-evios-rgb: 10, 122, 255;
-  --color-evios-light-rgb: 61, 154, 255;
+  --color-evios-rgb: 11, 83, 148;
+  --color-evios-light-rgb: 201, 218, 248;
 }
 
 html {
@@ -91,11 +93,11 @@ body {
 /* ─── Utility classes ─── */
 
 .glow-blue {
-  box-shadow: 0 0 20px rgba(var(--color-evios-rgb), 0.12), 0 0 40px rgba(var(--color-evios-rgb), 0.04);
+  box-shadow: 0 10px 30px rgba(var(--color-evios-rgb), 0.08);
 }
 
 .glow-blue-strong {
-  box-shadow: 0 0 30px rgba(var(--color-evios-rgb), 0.2), 0 0 60px rgba(var(--color-evios-rgb), 0.06), inset 0 1px 0 rgba(var(--color-evios-rgb), 0.08);
+  box-shadow: 0 16px 42px rgba(var(--color-evios-rgb), 0.12), inset 0 1px 0 rgba(var(--color-evios-rgb), 0.12);
 }
 
 .accent-line {
@@ -107,5 +109,5 @@ body {
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+::-webkit-scrollbar-track { background: #f2f0eb; }
+::-webkit-scrollbar-thumb { background: #d3d8e0; border-radius: 2px; }

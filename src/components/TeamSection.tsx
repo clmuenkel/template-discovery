@@ -50,9 +50,9 @@ const team: TeamMember[] = [
   },
   {
     name: "Zad Iqbal",
-    title: "Co Founder | Head of Partnerships and Technology",
-    image: "/team/zad-headshot.png",
-    imagePosition: "center 8%",
+    title: "Head of Partnerships",
+    image: "/team/zad.png",
+    imagePosition: "center top",
     fields: [
       {
         icon: Building2,
@@ -127,7 +127,7 @@ export default function TeamSection() {
                 >
                   {/* Photo card */}
                   <div
-                    className="relative overflow-hidden rounded-2xl bg-bg transition-all duration-500 ease-out"
+                    className="relative overflow-hidden rounded-2xl bg-bg-card border border-border transition-all duration-500 ease-out"
                     style={{
                       aspectRatio: "3/4",
                       filter: isInactive ? "brightness(0.35) saturate(0.5)" : "brightness(1)",

@@ -59,7 +59,7 @@ export default function Hero({
             width={600}
             height={600}
             className="w-[500px] h-auto opacity-[0.03] select-none"
-            style={{ filter: "grayscale(1) brightness(2)" }}
+            style={{ filter: "grayscale(1) opacity(0.6)" }}
             aria-hidden
           />
         </div>
@@ -75,15 +75,11 @@ export default function Hero({
           }}
         >
           <Image
-            src="/evios-logo-blue.png"
+            src="/evios-logo-clean.png"
             alt="EVIOS"
-            width={240}
-            height={66}
+            width={260}
+            height={72}
             className="h-14 sm:h-16 w-auto mx-auto"
-            style={{
-              filter: phase >= 1 ? "drop-shadow(0 0 12px rgba(var(--color-evios-rgb),0.25))" : "none",
-              transition: "filter 1.5s ease",
-            }}
             priority
           />
         </div>

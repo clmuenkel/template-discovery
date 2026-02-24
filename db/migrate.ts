@@ -13,7 +13,7 @@ async function migrate() {
   const migration = readFileSync(join(__dirname, "migrate.sql"), "utf-8");
 
   console.log("Running migration...");
-  await sql(migration);
+  await sql.query(migration);
   console.log("Migration complete.");
 }
 
