@@ -155,6 +155,50 @@ export const prospects: Record<string, ProspectConfig> = {
         "No revisions. No ghosting. Just results. Welcome to EVIOS.",
     },
   },
+  "gps-waco": {
+    slug: "gps-waco",
+    companyName: "Goodwin Plumbing Services",
+    contactFirstName: "Kristin",
+    contactLastName: "Vorderkunz",
+    contactTitle: "Vice President",
+    logoUrl: "/prospects/gps-waco/logo.png",
+    industry:
+      "Plumbing, Mechanical, General, Engineering, Construction, and Fabrication",
+    linkedin: {
+      university: "Texas A&M University",
+      universityLogoUrl: "/prospects/gps-waco/watermark-am.png",
+      degree: "Engineering",
+      interests: ["Spanish", "International study", "Operations excellence"],
+      funFact: "Studied abroad in Granada while sharpening professional Spanish.",
+    },
+    heroTagline: "Serving Waco since 1960 with craftsmanship that scales.",
+    callNotes:
+      "Goodwin Plumbing Services (GPS Waco) has served Waco, TX since 1960 and operates across Plumbing, Mechanical, General, Engineering, Construction, and Fabrication work. Today we align discovery around operational leverage and scalable process improvements.",
+    painPoints: [
+      "Coordinating multiple service lines without losing operational visibility",
+      "Maintaining speed and consistency as projects span different disciplines",
+      "Capturing process knowledge so execution quality scales with growth",
+    ],
+    suggestedSolutions: [
+      "Unified workflow layer across Plumbing, Mechanical, and Construction teams",
+      "Automation for intake, dispatch, and handoffs between departments",
+      "Reporting dashboards that highlight bottlenecks and capacity in real time",
+    ],
+    closingMessage:
+      "Let's build a modern operating system that matches the Goodwin legacy.",
+    theme: {
+      accent: "#500000",
+      accentLight: "#7A1C1C",
+      accentDark: "#2D0000",
+      themeLabel: "gps-waco",
+      watermarkUrl: "/prospects/gps-waco/watermark-am.png",
+      easterEggKeyword: "howdy",
+      easterEggIntro:
+        "Gig 'em, Kristin. Your engineering lens is exactly what this build needs.",
+      easterEggClosing:
+        "From Waco to Granada-level precision, let's engineer the next chapter.",
+    },
+  },
 };
 
 export const defaultProspect: ProspectConfig = {

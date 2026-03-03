@@ -1,12 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import ScrollReveal from "./ScrollReveal";
+import basePath from "@/lib/basePath";
 
 interface Props {
   companyName: string;
   contactFirstName: string;
   callNotes?: string;
   easterEgg?: string;
+  universityLogoUrl?: string;
 }
 
 export default function DiscoveryIntro({
@@ -14,6 +17,7 @@ export default function DiscoveryIntro({
   contactFirstName,
   callNotes,
   easterEgg,
+  universityLogoUrl,
 }: Props) {
   const isPersonalized = companyName !== "Your Company";
 
@@ -96,9 +100,21 @@ export default function DiscoveryIntro({
 
         {easterEgg && (
           <ScrollReveal delay={0.5}>
-            <p className="mt-6 text-text-muted text-xs italic opacity-60">
-              {easterEgg}
-            </p>
+            <div className="mt-6 flex items-center justify-center gap-2 text-text-muted text-xs italic opacity-60">
+              {universityLogoUrl && (
+                <Image
+                  src={`${basePath}${universityLogoUrl}`}
+                  alt="University badge"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 rounded-full"
+                  style={{
+                    filter: "grayscale(0.15) drop-shadow(0 0 6px rgba(80,0,0,0.2))",
+                  }}
+                />
+              )}
+              <p>{easterEgg}</p>
+            </div>
           </ScrollReveal>
         )}
       </div>

@@ -11,6 +11,7 @@ interface Props {
   customer: string;
   closingMessage?: string;
   easterEgg?: string;
+  universityLogoUrl?: string;
 }
 
 export default function Closing({
@@ -18,6 +19,7 @@ export default function Closing({
   customer,
   closingMessage,
   easterEgg,
+  universityLogoUrl,
 }: Props) {
   const isPersonalized = contactFirstName !== "Valued";
   const [painCount, setPainCount] = useState(0);
@@ -153,9 +155,21 @@ export default function Closing({
             }}
           />
           {easterEgg && (
-            <p className="text-text-muted text-xs italic opacity-60 mt-4">
-              {easterEgg}
-            </p>
+            <div className="mt-4 flex items-center justify-center gap-2 text-text-muted text-xs italic opacity-60">
+              {universityLogoUrl && (
+                <Image
+                  src={`${basePath}${universityLogoUrl}`}
+                  alt="University badge"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 rounded-full"
+                  style={{
+                    filter: "grayscale(0.15) drop-shadow(0 0 6px rgba(80,0,0,0.2))",
+                  }}
+                />
+              )}
+              <p>{easterEgg}</p>
+            </div>
           )}
           <div className="mt-4">
             <Image

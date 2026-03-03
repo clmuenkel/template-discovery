@@ -1,6 +1,7 @@
 export interface LinkedInData {
   profileUrl?: string;
   university?: string;
+  universityLogoUrl?: string;
   degree?: string;
   previousCompanies?: string[];
   yearsInBusiness?: number;
@@ -21,6 +22,8 @@ export interface ThemeConfig {
   easterEggIntro?: string;
   /** Easter egg text shown in the Closing section */
   easterEggClosing?: string;
+  /** Hidden easter egg trigger keyword (e.g. "howdy") */
+  easterEggKeyword?: string;
   /** Short theme label for internal reference (e.g. "star-wars", "ut-austin") */
   themeLabel?: string;
 }

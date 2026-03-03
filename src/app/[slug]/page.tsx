@@ -14,28 +14,29 @@ import Appendix from "@/components/Appendix";
 import AggieEasterEgg from "@/components/AggieEasterEgg";
 
 interface PageProps {
-  searchParams: Promise<{ customer?: string; slug?: string }>;
+  params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({
-  searchParams,
-}: PageProps): Promise<Metadata> {
-  const params = await searchParams;
-  const customer = params.customer || params.slug || "demo";
-  const prospect = prospects[customer] || defaultProspect;
+export function generateStaticParams() {
+  return Object.keys(prospects).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const prospect = prospects[slug] || defaultProspect;
 
   return {
     title:
       prospect.companyName !== "Your Company"
-        ? `EVIOS \u00D7 ${prospect.companyName}`
+        ? `EVIOS × ${prospect.companyName}`
         : "EVIOS | Custom Process Optimization",
     description: `Personalized overview for ${prospect.companyName} by EVIOS.`,
   };
 }
 
-export default async function Home({ searchParams }: PageProps) {
-  const params = await searchParams;
-  const customer = params.customer || params.slug || "demo";
+export default async function ProspectPage({ params }: PageProps) {
+  const { slug } = await params;
+  const customer = slug;
   const prospect: ProspectConfig = prospects[customer] || defaultProspect;
 
   return (
@@ -43,7 +44,6 @@ export default async function Home({ searchParams }: PageProps) {
       <main className="min-h-screen bg-bg">
         <Navbar companyName={prospect.companyName} />
 
-        {/* ─── PRESENTATION ─── */}
         <Hero
           companyName={prospect.companyName}
           contactFirstName={prospect.contactFirstName}
@@ -57,7 +57,6 @@ export default async function Home({ searchParams }: PageProps) {
         <TeamSection />
         <ProcessSection />
 
-        {/* ─── TRANSITION ─── */}
         <DiscoveryIntro
           companyName={prospect.companyName}
           contactFirstName={prospect.contactFirstName}
@@ -66,11 +65,9 @@ export default async function Home({ searchParams }: PageProps) {
           universityLogoUrl={prospect.linkedin.universityLogoUrl}
         />
 
-        {/* ─── WORKSHOP ─── */}
         <DiscoverySnapshot customer={customer} />
         <ProcessMapper customer={customer} />
 
-        {/* ─── CLOSE ─── */}
         <div className="accent-line" />
         <Closing
           contactFirstName={prospect.contactFirstName}
