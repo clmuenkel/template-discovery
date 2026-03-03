@@ -41,6 +41,13 @@ export default function Hero({
   const isPersonalized = contactFirstName !== "Valued";
   const hasLogo = logoUrl && logoUrl.length > 0;
   const isAndress = companyName === "Andress Plumbing";
+  const withBasePath = (url?: string) => {
+    if (!url) return "";
+    if (url.startsWith("http://") || url.startsWith("https://")) return url;
+    if (!url.startsWith("/")) return url;
+    if (basePath && url.startsWith(basePath + "/")) return url;
+    return `${basePath}${url}`;
+  };
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6">
@@ -55,7 +62,7 @@ export default function Hero({
       {watermarkUrl && (
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center overflow-hidden">
           <Image
-            src={watermarkUrl}
+            src={withBasePath(watermarkUrl)}
             alt=""
             width={600}
             height={600}
@@ -111,7 +118,7 @@ export default function Hero({
           {hasLogo && (
             <div className="mb-5 flex justify-center">
               <Image
-                src={logoUrl}
+                src={withBasePath(logoUrl)}
                 alt={companyName}
                 width={isAndress ? 720 : 560}
                 height={isAndress ? 230 : 180}
