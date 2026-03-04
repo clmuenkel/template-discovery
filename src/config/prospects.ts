@@ -155,6 +155,46 @@ export const prospects: Record<string, ProspectConfig> = {
         "No revisions. No ghosting. Just results. Welcome to EVIOS.",
     },
   },
+  "parobek-plumbing": {
+    slug: "parobek-plumbing",
+    companyName: "Parobek Plumbing & Air Conditioning",
+    contactFirstName: "Chase",
+    contactLastName: "Parobek",
+    contactTitle: "Leadership Team",
+    logoUrl: "/prospects/parobek-plumbing/logo.png",
+    industry: "Plumbing, HVAC, Drains, Sewer, and Water Quality",
+    linkedin: {
+      yearsInBusiness: 26,
+      interests: ["Customer experience", "Operational scale", "Community impact"],
+      funFact:
+        "Parobek has served Central Texas since 1999 and expanded from plumbing into HVAC services.",
+    },
+    heroTagline: "Trusted home services in Central Texas since 1999.",
+    callNotes:
+      "Parobek operates across Plumbing, AC & Heating, Drains & Sewer, and Water Quality services in Central Texas. This discovery focuses on improving lead response, dispatch coordination, and conversion consistency across a growing service footprint.",
+    painPoints: [
+      "Balancing same-day responsiveness across Plumbing and HVAC demand spikes",
+      "Coordinating dispatch and communication across multiple service lines",
+      "Keeping quoting, follow-up, and customer updates consistent at scale",
+    ],
+    suggestedSolutions: [
+      "Unified intake and triage workflow for Plumbing and HVAC requests",
+      "Automation for dispatch handoffs, customer notifications, and follow-up",
+      "Live operating dashboard for response times, job status, and conversion visibility",
+    ],
+    closingMessage:
+      "Let's build an operating system that matches the Parobek standard of service.",
+    theme: {
+      accent: "#003B7A",
+      accentLight: "#0D5CB0",
+      accentDark: "#002A57",
+      themeLabel: "parobek",
+      easterEggIntro:
+        "Chase, the Parobek reputation is already strong. This is about scaling it without friction.",
+      easterEggClosing:
+        "From Bastrop to the broader Central Texas region, let's make growth feel effortless.",
+    },
+  },
   "gps-waco": {
     slug: "gps-waco",
     companyName: "Goodwin Plumbing Services",

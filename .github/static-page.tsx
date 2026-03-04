@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const customer = "demo";
+  const customer = "parobek-plumbing";
   const prospect: ProspectConfig = prospects[customer] || defaultProspect;
 
   return (
@@ -48,6 +48,7 @@ export default function Home() {
           contactFirstName={prospect.contactFirstName}
           callNotes={prospect.callNotes}
           easterEgg={prospect.theme?.easterEggIntro}
+          universityLogoUrl={prospect.linkedin.universityLogoUrl}
         />
 
         {/* ─── WORKSHOP ─── */}
@@ -61,6 +62,7 @@ export default function Home() {
           customer={customer}
           closingMessage={prospect.closingMessage}
           easterEgg={prospect.theme?.easterEggClosing}
+          universityLogoUrl={prospect.linkedin.universityLogoUrl}
         />
         <Appendix prospect={prospect} />
       </main>
